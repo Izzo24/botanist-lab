@@ -1,0 +1,1438 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>植研所 Botanist Lab — 植物萃取保養</title>
+<meta name="description" content="植研所 Botanist Lab — 以植物科學為基底，結合台灣高山草本萃取，淬煉純粹有效的日常保養。">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Serif+TC:wght@300;400;500&family=Inter:wght@300;400;500&display=swap');
+
+  :root {
+    --bg: #f4f2ec;
+    --paper: #faf9f5;
+    --moss: #2d4a35;
+    --sage: #5a7a5e;
+    --sage-light: #8aab8e;
+    --fern: #3d6142;
+    --cream: #ede8de;
+    --ivory: #f8f5ee;
+    --charcoal: #1e2420;
+    --charcoal-soft: #3a4038;
+    --gold: #b09060;
+    --warm: #c4a882;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', 'Noto Serif TC', sans-serif;
+    background: var(--bg);
+    color: var(--charcoal);
+    overflow-x: hidden;
+    line-height: 1.7;
+  }
+
+  /* ── HEADER ── */
+  header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 60px;
+    height: 72px;
+    background: rgba(244,242,236,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(45,74,53,0.1);
+  }
+
+  .logo {
+    display: flex; align-items: center; gap: 14px;
+    text-decoration: none; color: inherit;
+  }
+
+  .logo-mark {
+    width: 40px; height: 40px;
+    position: relative;
+  }
+
+  .logo-mark svg {
+    width: 100%; height: 100%;
+  }
+
+  .logo-text { display: flex; flex-direction: column; line-height: 1.2; }
+  .logo-zh {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 15px; font-weight: 500;
+    letter-spacing: 0.15em;
+    color: var(--moss);
+  }
+  .logo-en {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px; font-weight: 400;
+    letter-spacing: 0.3em;
+    color: var(--sage);
+    text-transform: uppercase;
+  }
+
+  nav { display: flex; align-items: center; gap: 48px; }
+  nav a {
+    font-size: 12px; letter-spacing: 0.2em;
+    text-transform: uppercase; text-decoration: none;
+    color: var(--charcoal-soft); font-weight: 400;
+    transition: color 0.3s;
+  }
+  nav a:hover { color: var(--moss); }
+
+  .nav-cta {
+    background: var(--moss); color: white !important;
+    padding: 10px 24px; border-radius: 0;
+    letter-spacing: 0.2em;
+    transition: background 0.3s !important;
+  }
+  .nav-cta:hover { background: var(--fern) !important; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh; display: flex;
+    padding-top: 72px;
+    background: var(--ivory);
+    position: relative; overflow: hidden;
+  }
+
+  .hero-left {
+    flex: 1; display: flex; flex-direction: column;
+    justify-content: center;
+    padding: 80px 60px 80px 80px;
+    position: relative; z-index: 2;
+  }
+
+  .hero-tag {
+    font-size: 10px; letter-spacing: 0.4em;
+    text-transform: uppercase; color: var(--sage);
+    margin-bottom: 32px;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .hero-tag::before {
+    content: ''; display: block;
+    width: 40px; height: 1px; background: var(--sage);
+  }
+
+  .hero-h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 6vw, 88px);
+    font-weight: 300; line-height: 1.1;
+    color: var(--moss);
+    margin-bottom: 12px;
+  }
+
+  .hero-h1-zh {
+    font-family: 'Noto Serif TC', serif;
+    font-size: clamp(28px, 3vw, 44px);
+    font-weight: 300; line-height: 1.4;
+    color: var(--charcoal);
+    margin-bottom: 36px;
+    letter-spacing: 0.05em;
+  }
+
+  .hero-desc {
+    font-size: 14px; line-height: 2;
+    color: var(--charcoal-soft);
+    max-width: 420px; margin-bottom: 56px;
+    font-weight: 300; letter-spacing: 0.02em;
+  }
+
+  .hero-actions { display: flex; align-items: center; gap: 32px; }
+
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 12px;
+    background: var(--moss); color: white;
+    font-size: 11px; letter-spacing: 0.3em;
+    text-transform: uppercase; text-decoration: none;
+    padding: 16px 36px;
+    transition: all 0.4s;
+    font-weight: 400;
+  }
+  .btn-primary:hover { background: var(--fern); gap: 20px; }
+
+  .btn-text {
+    font-size: 11px; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--charcoal-soft);
+    text-decoration: none; font-weight: 400;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s, color 0.3s;
+    padding-bottom: 2px;
+  }
+  .btn-text:hover { border-color: var(--charcoal-soft); color: var(--charcoal); }
+
+  .hero-right {
+    flex: 1; position: relative;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+
+  .hero-botanical {
+    width: 100%; height: 100%;
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, var(--cream) 0%, var(--ivory) 60%, #e8ede4 100%);
+  }
+
+  .hero-botanical svg {
+    width: 80%; height: 80%;
+    opacity: 0.7;
+  }
+
+  .hero-badge {
+    position: absolute; bottom: 60px; right: 60px;
+    width: 110px; height: 110px;
+    border: 1px solid var(--sage-light);
+    border-radius: 50%;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 4px; background: rgba(250,249,245,0.9);
+  }
+  .hero-badge-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px; font-weight: 300;
+    color: var(--moss); line-height: 1;
+  }
+  .hero-badge-text {
+    font-size: 8px; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--sage);
+    text-align: center; line-height: 1.6;
+  }
+
+  .hero-scroll {
+    position: absolute; bottom: 40px; left: 80px;
+    display: flex; align-items: center; gap: 16px;
+    font-size: 9px; letter-spacing: 0.35em;
+    text-transform: uppercase; color: var(--sage);
+    opacity: 0.7;
+  }
+  .hero-scroll::after {
+    content: '';
+    display: block; width: 1px; height: 40px;
+    background: var(--sage); opacity: 0.5;
+  }
+
+  /* ── MARQUEE ── */
+  .marquee-strip {
+    background: var(--moss); color: white;
+    padding: 16px 0; overflow: hidden;
+  }
+  .marquee-inner {
+    display: flex; gap: 0;
+    animation: marquee 20s linear infinite;
+    white-space: nowrap;
+  }
+  .marquee-item {
+    display: inline-flex; align-items: center; gap: 32px;
+    padding: 0 32px;
+    font-size: 11px; letter-spacing: 0.3em;
+    text-transform: uppercase; opacity: 0.9;
+  }
+  .marquee-dot {
+    width: 4px; height: 4px; border-radius: 50%;
+    background: var(--sage-light); flex-shrink: 0;
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ── PHILOSOPHY ── */
+  .philosophy {
+    padding: 140px 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    background: var(--bg);
+  }
+
+  .phil-left {}
+
+  .section-label {
+    font-size: 10px; letter-spacing: 0.4em;
+    text-transform: uppercase; color: var(--sage);
+    margin-bottom: 24px;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .section-label::before {
+    content: ''; width: 32px; height: 1px; background: var(--sage);
+  }
+
+  .phil-h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 4vw, 56px);
+    font-weight: 300; line-height: 1.2;
+    color: var(--moss); margin-bottom: 16px;
+  }
+
+  .phil-h2-zh {
+    font-family: 'Noto Serif TC', serif;
+    font-size: clamp(18px, 2vw, 26px);
+    font-weight: 300; color: var(--charcoal);
+    margin-bottom: 40px; letter-spacing: 0.05em;
+  }
+
+  .phil-body {
+    font-size: 14px; line-height: 2.2;
+    color: var(--charcoal-soft); font-weight: 300;
+    max-width: 440px; margin-bottom: 48px;
+  }
+
+  .phil-stats {
+    display: flex; gap: 48px;
+  }
+  .stat { display: flex; flex-direction: column; gap: 4px; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 40px; font-weight: 300; color: var(--moss);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 10px; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--sage);
+  }
+
+  .phil-right {
+    position: relative;
+    display: grid; grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 16px; height: 520px;
+  }
+
+  .phil-img {
+    border-radius: 0;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .phil-img-1 { grid-row: 1 / 3; }
+  .phil-img-2 { grid-row: 1; }
+  .phil-img-3 { grid-row: 2; }
+
+  .phil-img-inner {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 64px; position: relative;
+    overflow: hidden;
+  }
+
+  .img-bg-1 { background: linear-gradient(135deg, #c8d8c4 0%, #a0b89c 100%); }
+  .img-bg-2 { background: linear-gradient(135deg, #e8dcc8 0%, #d4c4a8 100%); }
+  .img-bg-3 { background: linear-gradient(135deg, #d0d8cc 0%, #b8c4b4 100%); }
+
+  .phil-img-inner svg {
+    width: 60%; height: 60%; opacity: 0.6;
+  }
+
+  .img-label {
+    position: absolute; bottom: 16px; left: 16px;
+    font-size: 9px; letter-spacing: 0.25em;
+    text-transform: uppercase; color: rgba(30,36,32,0.7);
+    font-weight: 500;
+  }
+
+  /* ── PRODUCTS ── */
+  .products {
+    padding: 120px 80px;
+    background: var(--ivory);
+  }
+
+  .products-header {
+    display: flex; align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 72px;
+  }
+
+  .products-title { max-width: 480px; }
+
+  .prod-h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 4vw, 52px);
+    font-weight: 300; color: var(--moss);
+    line-height: 1.2; margin-bottom: 8px;
+  }
+  .prod-h2-zh {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 22px; font-weight: 300;
+    color: var(--charcoal); letter-spacing: 0.05em;
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .product-card {
+    cursor: pointer;
+    group: true;
+  }
+
+  .product-img {
+    aspect-ratio: 3/4; position: relative;
+    overflow: hidden; margin-bottom: 24px;
+  }
+
+  .product-img-inner {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    transition: transform 0.6s ease;
+    position: relative;
+  }
+
+  .product-card:hover .product-img-inner { transform: scale(1.03); }
+
+  .prod-bg-1 { background: linear-gradient(160deg, #dce8d8 0%, #b4c8b0 60%, #9ab49a 100%); }
+  .prod-bg-2 { background: linear-gradient(160deg, #e8e0d0 0%, #d4c8b0 60%, #c4b89a 100%); }
+  .prod-bg-3 { background: linear-gradient(160deg, #d8dce4 0%, #b8c0cc 60%, #a4aebc 100%); }
+
+  .product-img-inner svg {
+    width: 50%; height: 50%; opacity: 0.7;
+  }
+
+  .product-tag-inner {
+    position: absolute; top: 20px; left: 20px;
+    background: var(--moss); color: white;
+    font-size: 9px; letter-spacing: 0.25em;
+    text-transform: uppercase;
+    padding: 6px 12px;
+  }
+
+  .product-info {}
+  .product-series {
+    font-size: 9px; letter-spacing: 0.3em;
+    text-transform: uppercase; color: var(--sage);
+    margin-bottom: 8px;
+  }
+  .product-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 400;
+    color: var(--charcoal); margin-bottom: 4px;
+  }
+  .product-name-zh {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 14px; font-weight: 300;
+    color: var(--charcoal-soft); margin-bottom: 16px;
+  }
+  .product-desc {
+    font-size: 12px; line-height: 1.9;
+    color: var(--charcoal-soft); font-weight: 300;
+    margin-bottom: 20px;
+  }
+  .product-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px; font-weight: 400; color: var(--moss);
+  }
+  .product-price-note {
+    font-size: 10px; color: var(--sage); margin-left: 8px;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* ── INGREDIENTS ── */
+  .ingredients {
+    padding: 140px 80px;
+    background: var(--moss); color: white;
+    position: relative; overflow: hidden;
+  }
+
+  .ingredients::before {
+    content: '';
+    position: absolute; top: -100px; right: -100px;
+    width: 500px; height: 500px;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 50%;
+  }
+
+  .ingredients::after {
+    content: '';
+    position: absolute; bottom: -150px; left: -80px;
+    width: 400px; height: 400px;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 50%;
+  }
+
+  .ing-header {
+    max-width: 560px; margin-bottom: 96px; position: relative; z-index: 2;
+  }
+
+  .ing-label {
+    font-size: 10px; letter-spacing: 0.4em;
+    text-transform: uppercase; color: var(--sage-light);
+    margin-bottom: 24px;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .ing-label::before {
+    content: ''; width: 32px; height: 1px; background: var(--sage-light);
+  }
+
+  .ing-h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 4vw, 56px);
+    font-weight: 300; line-height: 1.2;
+    color: white; margin-bottom: 8px;
+  }
+  .ing-h2-zh {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 22px; font-weight: 300;
+    color: rgba(255,255,255,0.75); letter-spacing: 0.05em;
+  }
+
+  .ing-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    position: relative; z-index: 2;
+  }
+
+  .ing-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 48px 36px;
+    transition: background 0.3s;
+    cursor: default;
+  }
+  .ing-card:hover { background: rgba(255,255,255,0.08); }
+
+  .ing-icon {
+    width: 56px; height: 56px; margin-bottom: 28px;
+    opacity: 0.7;
+  }
+
+  .ing-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 400;
+    color: white; margin-bottom: 4px;
+  }
+  .ing-name-zh {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 12px; font-weight: 300;
+    color: var(--sage-light); margin-bottom: 20px;
+    letter-spacing: 0.05em;
+  }
+  .ing-desc {
+    font-size: 12px; line-height: 2;
+    color: rgba(255,255,255,0.6); font-weight: 300;
+  }
+
+  .ing-origin {
+    margin-top: 16px; padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 9px; letter-spacing: 0.25em;
+    text-transform: uppercase; color: var(--sage-light);
+  }
+
+  /* ── RITUAL ── */
+  .ritual {
+    padding: 140px 80px;
+    background: var(--cream);
+  }
+
+  .ritual-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 120px;
+    align-items: center;
+  }
+
+  .ritual-visual {
+    position: relative;
+    height: 560px;
+  }
+
+  .ritual-main-img {
+    width: 78%; height: 100%;
+    position: relative;
+  }
+
+  .ritual-main-inner {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(160deg, #b8c8b4 0%, #8aab8e 100%);
+    position: relative; overflow: hidden;
+  }
+
+  .ritual-main-inner svg { width: 55%; height: 55%; opacity: 0.6; }
+
+  .ritual-accent {
+    position: absolute; right: 0; bottom: 80px;
+    width: 42%; height: 200px;
+    border: 1px solid var(--sage-light);
+    display: flex; align-items: center; justify-content: center;
+    background: var(--ivory);
+    flex-direction: column; gap: 8px; padding: 24px;
+  }
+
+  .ritual-accent-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px; font-weight: 300; color: var(--moss); line-height: 1;
+  }
+  .ritual-accent-text {
+    font-size: 9px; letter-spacing: 0.25em;
+    text-transform: uppercase; color: var(--sage);
+    text-align: center; line-height: 1.8;
+  }
+
+  .ritual-content {}
+
+  .ritual-steps {
+    display: flex; flex-direction: column; gap: 40px;
+    margin-top: 48px;
+  }
+
+  .ritual-step {
+    display: flex; gap: 28px; align-items: flex-start;
+  }
+
+  .step-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px; font-weight: 300;
+    color: var(--sage-light); line-height: 1;
+    flex-shrink: 0; width: 48px;
+  }
+
+  .step-content {}
+  .step-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 16px; font-weight: 500;
+    color: var(--charcoal); margin-bottom: 8px;
+    letter-spacing: 0.05em;
+  }
+  .step-desc {
+    font-size: 13px; line-height: 2;
+    color: var(--charcoal-soft); font-weight: 300;
+  }
+
+  /* ── VALUES ── */
+  .values {
+    padding: 120px 80px;
+    background: var(--bg);
+    text-align: center;
+  }
+
+  .values-header { margin-bottom: 80px; }
+
+  .val-h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 4vw, 52px);
+    font-weight: 300; color: var(--moss);
+    margin-bottom: 8px;
+  }
+  .val-h2-zh {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 20px; font-weight: 300;
+    color: var(--charcoal); letter-spacing: 0.05em;
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+
+  .value-card {
+    background: var(--ivory);
+    padding: 64px 48px;
+    text-align: left;
+    border-top: 2px solid transparent;
+    transition: border-color 0.3s, background 0.3s;
+  }
+  .value-card:hover {
+    border-top-color: var(--sage);
+    background: white;
+  }
+
+  .value-icon {
+    width: 48px; height: 48px; margin-bottom: 32px;
+    color: var(--moss);
+  }
+
+  .value-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px; font-weight: 400;
+    color: var(--charcoal); margin-bottom: 4px;
+  }
+  .value-title-zh {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 13px; font-weight: 300;
+    color: var(--sage); margin-bottom: 20px;
+    letter-spacing: 0.05em;
+  }
+  .value-desc {
+    font-size: 13px; line-height: 2;
+    color: var(--charcoal-soft); font-weight: 300;
+  }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials {
+    padding: 120px 80px;
+    background: var(--ivory);
+    overflow: hidden;
+  }
+
+  .test-header {
+    text-align: center; margin-bottom: 72px;
+  }
+
+  .test-h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px; font-weight: 300;
+    color: var(--moss); margin-bottom: 8px;
+  }
+  .test-h2-zh {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 18px; font-weight: 300;
+    color: var(--charcoal); letter-spacing: 0.05em;
+  }
+
+  .test-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .test-card {
+    background: white;
+    padding: 48px 40px;
+    border-bottom: 2px solid var(--cream);
+  }
+
+  .test-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 64px; line-height: 0.8;
+    color: var(--sage-light); margin-bottom: 8px;
+    font-weight: 300;
+  }
+
+  .test-text {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 14px; line-height: 2;
+    color: var(--charcoal-soft); font-weight: 300;
+    margin-bottom: 32px;
+  }
+
+  .test-author {
+    display: flex; align-items: center; gap: 16px;
+  }
+  .test-avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; font-weight: 300;
+    font-family: 'Cormorant Garamond', serif;
+    color: white;
+  }
+  .av-1 { background: linear-gradient(135deg, var(--sage) 0%, var(--moss) 100%); }
+  .av-2 { background: linear-gradient(135deg, var(--warm) 0%, var(--gold) 100%); }
+  .av-3 { background: linear-gradient(135deg, var(--sage-light) 0%, var(--sage) 100%); }
+
+  .test-name {
+    font-size: 13px; font-weight: 500;
+    color: var(--charcoal); letter-spacing: 0.05em;
+  }
+  .test-type {
+    font-size: 10px; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--sage);
+  }
+
+  /* ── CTA ── */
+  .cta-section {
+    padding: 160px 80px;
+    background: var(--charcoal);
+    display: flex;
+    align-items: center; justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+
+  .cta-section::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 30% 50%, rgba(45,74,53,0.4) 0%, transparent 60%);
+  }
+
+  .cta-tag {
+    font-size: 10px; letter-spacing: 0.4em;
+    text-transform: uppercase; color: var(--sage-light);
+    margin-bottom: 32px; position: relative; z-index: 2;
+  }
+
+  .cta-h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(40px, 5vw, 72px);
+    font-weight: 300; color: white;
+    line-height: 1.2; margin-bottom: 8px;
+    position: relative; z-index: 2;
+  }
+  .cta-h2-zh {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 22px; font-weight: 300;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 48px; position: relative; z-index: 2;
+    letter-spacing: 0.05em;
+  }
+
+  .cta-actions {
+    display: flex; gap: 24px; align-items: center;
+    position: relative; z-index: 2;
+  }
+
+  .cta-btn-primary {
+    background: white; color: var(--charcoal);
+    font-size: 11px; letter-spacing: 0.3em;
+    text-transform: uppercase; text-decoration: none;
+    padding: 18px 48px; font-weight: 500;
+    transition: all 0.3s;
+    display: inline-block;
+  }
+  .cta-btn-primary:hover { background: var(--cream); }
+
+  .cta-btn-outline {
+    border: 1px solid rgba(255,255,255,0.3); color: white;
+    font-size: 11px; letter-spacing: 0.3em;
+    text-transform: uppercase; text-decoration: none;
+    padding: 18px 48px; font-weight: 300;
+    transition: all 0.3s;
+    display: inline-block;
+  }
+  .cta-btn-outline:hover { border-color: white; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--charcoal); color: rgba(255,255,255,0.6);
+    padding: 80px 80px 40px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 60px; margin-bottom: 80px;
+  }
+
+  .footer-brand {}
+  .footer-logo {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 24px;
+  }
+  .footer-logo-zh {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 16px; font-weight: 500;
+    color: white; letter-spacing: 0.1em;
+  }
+  .footer-logo-en {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px; letter-spacing: 0.3em;
+    text-transform: uppercase; color: var(--sage-light);
+    display: block;
+  }
+  .footer-tagline {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 13px; line-height: 2;
+    color: rgba(255,255,255,0.5); font-weight: 300;
+    max-width: 260px;
+  }
+
+  .footer-col-title {
+    font-size: 10px; letter-spacing: 0.3em;
+    text-transform: uppercase; color: white;
+    margin-bottom: 24px; font-weight: 500;
+  }
+
+  .footer-links {
+    list-style: none; display: flex;
+    flex-direction: column; gap: 14px;
+  }
+  .footer-links a {
+    font-size: 13px; color: rgba(255,255,255,0.5);
+    text-decoration: none; font-weight: 300;
+    transition: color 0.3s; letter-spacing: 0.02em;
+  }
+  .footer-links a:hover { color: rgba(255,255,255,0.9); }
+
+  .footer-bottom {
+    display: flex; align-items: center;
+    justify-content: space-between;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    font-size: 11px; color: rgba(255,255,255,0.3);
+    letter-spacing: 0.05em;
+  }
+
+  .footer-bottom a {
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .footer-bottom a:hover { color: rgba(255,255,255,0.8); }
+
+  /* ── ANIMATIONS ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+  }
+  .reveal.visible {
+    opacity: 1; transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="#" class="logo">
+    <div class="logo-mark">
+      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="18" stroke="#2d4a35" stroke-width="1"/>
+        <path d="M20 8 C20 8 12 14 12 22 C12 28 16 32 20 32 C24 32 28 28 28 22 C28 14 20 8 20 8Z" fill="#2d4a35" opacity="0.15"/>
+        <path d="M20 10 C20 10 14 17 14 23 C14 27.5 16.5 30.5 20 31 C23.5 30.5 26 27.5 26 23 C26 17 20 10 20 10Z" stroke="#2d4a35" stroke-width="1" fill="none"/>
+        <line x1="20" y1="10" x2="20" y2="32" stroke="#2d4a35" stroke-width="0.75" opacity="0.4"/>
+        <line x1="14" y1="23" x2="26" y2="23" stroke="#2d4a35" stroke-width="0.75" opacity="0.4"/>
+        <line x1="15" y1="17" x2="25" y2="17" stroke="#2d4a35" stroke-width="0.5" opacity="0.3"/>
+      </svg>
+    </div>
+    <div class="logo-text">
+      <span class="logo-zh">植研所</span>
+      <span class="logo-en">Botanist Lab</span>
+    </div>
+  </a>
+
+  <nav>
+    <a href="#products">茶品</a>
+    <a href="#ingredients">成分</a>
+    <a href="#ritual">使用步驟</a>
+    <a href="#about">品牌理念</a>
+    <a href="#shop" class="nav-cta">立即選購</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">Taiwan Botanical Science</div>
+    <h1 class="hero-h1">Rooted in<br>Nature</h1>
+    <p class="hero-h1-zh">植物萃取，科學淬鍊</p>
+    <p class="hero-desc">以台灣高山草本為基底，結合現代植物科學，萃取每一株植物的純粹精華。植研所相信，最好的保養，來自大地最誠實的回應。</p>
+    <div class="hero-actions">
+      <a href="#products" class="btn-primary">探索系列 →</a>
+      <a href="#about" class="btn-text">品牌故事</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-botanical">
+      <!-- Botanical illustration SVG -->
+      <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Main stem -->
+        <path d="M250 480 C250 480 245 380 250 300 C255 220 245 160 250 80" stroke="#2d4a35" stroke-width="1.5" fill="none" opacity="0.5"/>
+        <!-- Large left leaf -->
+        <path d="M250 280 C230 260 185 240 170 210 C155 180 175 155 200 165 C225 175 250 200 250 220" fill="#2d4a35" opacity="0.12"/>
+        <path d="M250 280 C230 260 185 240 170 210 C155 180 175 155 200 165 C225 175 250 200 250 220" stroke="#2d4a35" stroke-width="0.75" fill="none" opacity="0.4"/>
+        <!-- Large right leaf -->
+        <path d="M250 240 C270 220 315 200 330 170 C345 140 325 115 300 125 C275 135 250 160 250 180" fill="#2d4a35" opacity="0.12"/>
+        <path d="M250 240 C270 220 315 200 330 170 C345 140 325 115 300 125 C275 135 250 160 250 180" stroke="#2d4a35" stroke-width="0.75" fill="none" opacity="0.4"/>
+        <!-- Medium left leaf -->
+        <path d="M250 340 C225 325 190 310 178 290 C166 270 180 250 200 258 C220 266 245 285 250 300" fill="#5a7a5e" opacity="0.1"/>
+        <path d="M250 340 C225 325 190 310 178 290 C166 270 180 250 200 258 C220 266 245 285 250 300" stroke="#5a7a5e" stroke-width="0.75" fill="none" opacity="0.35"/>
+        <!-- Medium right leaf -->
+        <path d="M250 200 C275 185 310 170 322 150 C334 130 320 110 300 118 C280 126 255 145 250 160" fill="#5a7a5e" opacity="0.1"/>
+        <path d="M250 200 C275 185 310 170 322 150 C334 130 320 110 300 118 C280 126 255 145 250 160" stroke="#5a7a5e" stroke-width="0.75" fill="none" opacity="0.35"/>
+        <!-- Small top leaves -->
+        <path d="M250 130 C240 118 225 108 220 95 C215 82 224 72 234 78 C244 84 250 100 250 110" fill="#3d6142" opacity="0.15"/>
+        <path d="M250 120 C260 108 275 98 280 85 C285 72 276 62 266 68 C256 74 250 90 250 100" fill="#3d6142" opacity="0.15"/>
+        <!-- Vein lines -->
+        <path d="M250 280 L175 215" stroke="#2d4a35" stroke-width="0.4" opacity="0.3"/>
+        <path d="M210 260 L180 240" stroke="#2d4a35" stroke-width="0.3" opacity="0.2"/>
+        <path d="M230 245 L200 230" stroke="#2d4a35" stroke-width="0.3" opacity="0.2"/>
+        <path d="M250 240 L325 172" stroke="#2d4a35" stroke-width="0.4" opacity="0.3"/>
+        <path d="M290 218 L318 190" stroke="#2d4a35" stroke-width="0.3" opacity="0.2"/>
+        <!-- Dots - botanical reference marks -->
+        <circle cx="250" cy="300" r="3" fill="#2d4a35" opacity="0.3"/>
+        <circle cx="250" cy="240" r="3" fill="#2d4a35" opacity="0.3"/>
+        <circle cx="250" cy="200" r="2.5" fill="#2d4a35" opacity="0.25"/>
+        <circle cx="250" cy="160" r="2" fill="#2d4a35" opacity="0.2"/>
+        <circle cx="250" cy="120" r="2" fill="#2d4a35" opacity="0.2"/>
+        <!-- Mountain silhouette subtle -->
+        <path d="M0 420 L120 320 L200 380 L280 290 L380 360 L500 280 L500 500 L0 500 Z" fill="#2d4a35" opacity="0.04"/>
+      </svg>
+    </div>
+
+    <div class="hero-badge">
+      <div class="hero-badge-num">100%</div>
+      <div class="hero-badge-text">Pure<br>Botanical</div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">SCROLL</div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <div class="marquee-inner">
+    <!-- repeat twice for seamless loop -->
+    <span class="marquee-item">植物科學 <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Botanical Science <span class="marquee-dot"></span></span>
+    <span class="marquee-item">台灣高山草本 <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Taiwan Alpine Herbs <span class="marquee-dot"></span></span>
+    <span class="marquee-item">大然萃取 <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Pure Extraction <span class="marquee-dot"></span></span>
+    <span class="marquee-item">無添加 <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Zero Additives <span class="marquee-dot"></span></span>
+    <span class="marquee-item">植物科學 <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Botanical Science <span class="marquee-dot"></span></span>
+    <span class="marquee-item">台灣高山草本 <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Taiwan Alpine Herbs <span class="marquee-dot"></span></span>
+    <span class="marquee-item">天然萃取 <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Pure Extraction <span class="marquee-dot"></span></span>
+    <span class="marquee-item">無添加 <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Zero Additives <span class="marquee-dot"></span></span>
+  </div>
+</div>
+
+<!-- PHILOSOPHY -->
+<section class="philosophy" id="about">
+  <div class="phil-left reveal">
+    <div class="section-label">Our Philosophy</div>
+    <h2 class="phil-h2">Science Meets<br>Nature</h2>
+    <p class="phil-h2-zh">科學與自然的交會</p>
+    <p class="phil-body">植研所成立於台灣，由一群植物科學家與保養師共同創立。我們深信每一株植物都蘊含大地的智慧，透過嚴格的科學萃取工藝，將草本精華完整保留，帶給肌膚最直接而純粹的照護。<br><br>所有原料均產自台灣本島，從海拔一千公尺以上的高山採集，確保每一滴精華都是台灣土地最誠實的饋贈。</p>
+    <div class="phil-stats">
+      <div class="stat">
+        <div class="stat-num">12</div>
+        <div class="stat-label">年研發</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">48</div>
+        <div class="stat-label">種植物原料</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">0</div>
+        <div class="stat-label">人工添加</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="phil-right reveal">
+    <div class="phil-img phil-img-1">
+      <div class="phil-img-inner img-bg-1">
+        <svg viewBox="0 0 120 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M60 170 C60 170 55 130 60 90 C65 50 55 20 60 10" stroke="#1e2420" stroke-width="1.5" fill="none"/>
+          <path d="M60 120 C45 105 22 95 15 75 C8 55 22 40 38 48 C54 56 60 78 60 90" fill="#1e2420" opacity="0.2"/>
+          <path d="M60 90 C75 75 98 65 105 45 C112 25 98 10 82 18 C66 26 60 48 60 60" fill="#1e2420" opacity="0.15"/>
+          <circle cx="60" cy="90" r="2.5" fill="#1e2420" opacity="0.4"/>
+          <circle cx="60" cy="120" r="2" fill="#1e2420" opacity="0.3"/>
+        </svg>
+        <div class="img-label">Alpine Herb Field</div>
+      </div>
+    </div>
+    <div class="phil-img phil-img-2">
+      <div class="phil-img-inner img-bg-2">
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="35" stroke="#3a4038" stroke-width="1" opacity="0.4"/>
+          <circle cx="50" cy="50" r="22" stroke="#3a4038" stroke-width="0.75" opacity="0.3"/>
+          <circle cx="50" cy="50" r="10" fill="#3a4038" opacity="0.15"/>
+          <line x1="15" y1="50" x2="85" y2="50" stroke="#3a4038" stroke-width="0.5" opacity="0.3"/>
+          <line x1="50" y1="15" x2="50" y2="85" stroke="#3a4038" stroke-width="0.5" opacity="0.3"/>
+        </svg>
+        <div class="img-label">Extraction Lab</div>
+      </div>
+    </div>
+    <div class="phil-img phil-img-3">
+      <div class="phil-img-inner img-bg-3">
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="30" y="20" width="40" height="60" rx="20" stroke="#3a4038" stroke-width="1" fill="none" opacity="0.4"/>
+          <path d="M50 20 C50 20 50 10 50 6" stroke="#3a4038" stroke-width="1" opacity="0.3"/>
+          <circle cx="50" cy="4" r="3" fill="#3a4038" opacity="0.2"/>
+          <rect x="40" y="55" width="20" height="3" rx="1.5" fill="#3a4038" opacity="0.15"/>
+          <rect x="40" y="62" width="20" height="3" rx="1.5" fill="#3a4038" opacity="0.12"/>
+        </svg>
+        <div class="img-label">Pure Formulation</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+  <div class="products-header reveal">
+    <div class="products-title">
+      <div class="section-label">Product Lines</div>
+      <h2 class="prod-h2">Botanical<br>Collection</h2>
+      <p class="prod-h2-zh">植萃精選系列</p>
+    </div>
+    <a href="#shop" class="btn-text" style="margin-bottom:8px;">查看全系列 →</a>
+  </div>
+
+  <div class="products-grid">
+    <div class="product-card reveal">
+      <div class="product-img">
+        <div class="product-img-inner prod-bg-1">
+          <svg viewBox="0 0 120 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="40" y="40" width="40" height="100" rx="8" stroke="#1e2420" stroke-width="1" fill="white" fill-opacity="0.3"/>
+            <rect x="48" y="28" width="24" height="16" rx="4" stroke="#1e2420" stroke-width="0.75" fill="none"/>
+            <rect x="52" y="22" width="16" height="8" rx="3" fill="#1e2420" fill-opacity="0.2"/>
+            <path d="M45 75 C45 75 55 68 60 72 C65 76 75 68 75 68" stroke="#1e2420" stroke-width="0.5" opacity="0.4"/>
+            <path d="M50 65 L70 65" stroke="#1e2420" stroke-width="0.4" opacity="0.3"/>
+            <path d="M52 58 L68 58" stroke="#1e2420" stroke-width="0.4" opacity="0.3"/>
+          </svg>
+          <div class="product-tag-inner">熱銷</div>
+        </div>
+      </div>
+      <div class="product-info">
+        <div class="product-series">Alpine Essence Series</div>
+        <div class="product-name">Revive Serum</div>
+        <div class="product-name-zh">高山修護精華液</div>
+        <div class="product-desc">以台灣高山積雪草為核心成分，搭配深層海洋膠原蛋白，每日清晨一瓶，恢復肌膚彈潤。</div>
+        <div class="product-price">NT$ 2,280<span class="product-price-note">/ 30ml</span></div>
+      </div>
+    </div>
+
+    <div class="product-card reveal">
+      <div class="product-img">
+        <div class="product-img-inner prod-bg-2">
+          <svg viewBox="0 0 120 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="60" cy="100" rx="28" ry="40" stroke="#3a3530" stroke-width="1" fill="white" fill-opacity="0.3"/>
+            <ellipse cx="60" cy="60" rx="18" ry="12" stroke="#3a3530" stroke-width="0.75" fill="none"/>
+            <ellipse cx="60" cy="52" rx="12" ry="6" fill="#3a3530" fill-opacity="0.15"/>
+            <path d="M40 100 C40 100 50 92 60 96 C70 100 80 92 80 92" stroke="#3a3530" stroke-width="0.5" opacity="0.3"/>
+          </svg>
+        </div>
+      </div>
+      <div class="product-info">
+        <div class="product-series">Root & Soil Series</div>
+        <div class="product-name">Deep Cream</div>
+        <div class="product-name-zh">植萃深層滋養霜</div>
+        <div class="product-desc">融合台灣山茶花油與蘆薈凝萃，質地輕盈不黏膩，夜間深層修護，喚醒肌膚自然光澤。</div>
+        <div class="product-price">NT$ 1,880<span class="product-price-note">/ 50ml</span></div>
+      </div>
+    </div>
+
+    <div class="product-card reveal">
+      <div class="product-img">
+        <div class="product-img-inner prod-bg-3">
+          <svg viewBox="0 0 120 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="35" y="50" width="50" height="90" rx="4" stroke="#2d3038" stroke-width="1" fill="white" fill-opacity="0.3"/>
+            <rect x="42" y="38" width="36" height="16" rx="2" stroke="#2d3038" stroke-width="0.75" fill="none"/>
+            <rect x="48" y="32" width="24" height="8" rx="2" fill="#2d3038" fill-opacity="0.15"/>
+            <line x1="45" y1="100" x2="75" y2="100" stroke="#2d3038" stroke-width="0.4" opacity="0.3"/>
+            <line x1="45" y1="110" x2="75" y2="110" stroke="#2d3038" stroke-width="0.4" opacity="0.25"/>
+          </svg>
+        </div>
+      </div>
+      <div class="product-info">
+        <div class="product-series">Clarity Series</div>
+        <div class="product-name">Mist Toner</div>
+        <div class="product-name-zh">植萃清透化妝水</div>
+        <div class="product-desc">薄荷葉萃取與玫瑰純露雙重複方，輕盈噴霧質感，全日隨時補水，維持肌膚水潤平衡。</div>
+        <div class="product-price">NT$ 1,280<span class="product-price-note">/ 120ml</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INGREDIENTS -->
+<section class="ingredients" id="ingredients">
+  <div class="ing-header reveal">
+    <div class="ing-label">Key Botanicals</div>
+    <h2 class="ing-h2">From the<br>Earth</h2>
+    <p class="ing-h2-zh">取自大地的純粹力量</p>
+  </div>
+
+  <div class="ing-grid reveal">
+    <div class="ing-card">
+      <svg class="ing-icon" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M28 48 C28 48 24 36 28 24 C32 12 28 4 28 4" stroke="rgba(255,255,255,0.7)" stroke-width="1.5"/>
+        <path d="M28 32 C22 26 12 22 10 14 C8 6 14 2 20 6 C26 10 28 18 28 24" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.4)" stroke-width="0.75"/>
+        <path d="M28 24 C34 18 44 14 46 6 C48 -2 42 -6 36 -2 C30 2 28 10 28 16" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.4)" stroke-width="0.75"/>
+      </svg>
+      <div class="ing-name">積雪草</div>
+      <div class="ing-name-zh">Centella Asiatica</div>
+      <div class="ing-desc">源自台灣山區的積雪草，含有豐富的三萜酸，具有強效修護與抗敏特性，為植研所的核心成分。</div>
+      <div class="ing-origin">Origin — 台灣合歡山 · 2,600m</div>
+    </div>
+
+    <div class="ing-card">
+      <svg class="ing-icon" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="28" cy="28" r="14" stroke="rgba(255,255,255,0.6)" stroke-width="1"/>
+        <circle cx="28" cy="28" r="7" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.4)" stroke-width="0.75"/>
+        <circle cx="28" cy="28" r="3" fill="rgba(255,255,255,0.2)"/>
+        <line x1="28" y1="10" x2="28" y2="46" stroke="rgba(255,255,255,0.25)" stroke-width="0.5"/>
+        <line x1="10" y1="28" x2="46" y2="28" stroke="rgba(255,255,255,0.25)" stroke-width="0.5"/>
+        <line x1="16" y1="16" x2="40" y2="40" stroke="rgba(255,255,255,0.15)" stroke-width="0.5"/>
+        <line x1="40" y1="16" x2="16" y2="40" stroke="rgba(255,255,255,0.15)" stroke-width="0.5"/>
+      </svg>
+      <div class="ing-name">山茶花油</div>
+      <div class="ing-name-zh">Camellia Oil</div>
+      <div class="ing-desc">冷壓萃取的台灣山茶花籽油，油酸含量高達 87%，質地輕薄，快速滲透角質層，強化肌膚屏障。</div>
+      <div class="ing-origin">Origin — 台灣阿里山 · 1,200m</div>
+    </div>
+
+    <div class="ing-card">
+      <svg class="ing-icon" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M28 50 L8 26 L18 12 L28 18 L38 12 L48 26 Z" stroke="rgba(255,255,255,0.6)" stroke-width="1" fill="rgba(255,255,255,0.08)"/>
+        <path d="M28 18 L28 50" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
+        <path d="M8 26 L48 26" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
+      </svg>
+      <div class="ing-name">玫瑰純露</div>
+      <div class="ing-name-zh">Rose Hydrosol</div>
+      <div class="ing-desc">大馬士革玫瑰蒸餾萃取，含有微量玫瑰精油成分，溫和舒緩肌膚紅腫，平衡油脂分泌。</div>
+      <div class="ing-origin">Origin — 台灣苗栗 · 有機農場</div>
+    </div>
+
+    <div class="ing-card">
+      <svg class="ing-icon" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="14" y="14" width="28" height="28" rx="14" stroke="rgba(255,255,255,0.6)" stroke-width="1"/>
+        <rect x="20" y="20" width="16" height="16" rx="8" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.35)" stroke-width="0.75"/>
+        <circle cx="28" cy="28" r="4" fill="rgba(255,255,255,0.2)"/>
+        <path d="M28 6 L28 14" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+        <path d="M28 42 L28 50" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+        <path d="M6 28 L14 28" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+        <path d="M42 28 L50 28" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+      </svg>
+      <div class="ing-name">薄荷葉萃取</div>
+      <div class="ing-name-zh">Peppermint Extract</div>
+      <div class="ing-desc">台灣本土種植薄荷的低溫萃取精華，含有薄荷醇，即時清涼舒緩，收斂毛孔，提振肌膚活力。</div>
+      <div class="ing-origin">Origin — 台灣桃園 · 有機栽培</div>
+    </div>
+  </div>
+</section>
+
+<!-- RITUAL / HOW TO USE -->
+<section class="ritual" id="ritual">
+  <div class="ritual-inner">
+    <div class="ritual-visual reveal">
+      <div class="ritual-main-img">
+        <div class="ritual-main-inner">
+          <svg viewBox="0 0 200 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="60" y="60" width="80" height="180" rx="10" fill="rgba(255,255,255,0.25)" stroke="rgba(255,255,255,0.6)" stroke-width="1"/>
+            <rect x="72" y="48" width="56" height="16" rx="4" stroke="rgba(255,255,255,0.5)" stroke-width="0.75" fill="none"/>
+            <rect x="80" y="40" width="40" height="10" rx="3" fill="rgba(255,255,255,0.2)"/>
+            <path d="M70 150 C80 140 90 148 100 144 C110 140 120 148 130 148" stroke="rgba(255,255,255,0.5)" stroke-width="0.75"/>
+            <path d="M72 165 L128 165" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
+            <path d="M76 175 L124 175" stroke="rgba(255,255,255,0.25)" stroke-width="0.4"/>
+            <path d="M80 185 L120 185" stroke="rgba(255,255,255,0.2)" stroke-width="0.4"/>
+          </svg>
+        </div>
+      </div>
+      <div class="ritual-accent">
+        <div class="ritual-accent-num">28</div>
+        <div class="ritual-accent-text">Days to<br>Visible Results</div>
+      </div>
+    </div>
+
+    <div class="ritual-content reveal">
+      <div class="section-label">Daily Ritual</div>
+      <h2 style="font-family:'Cormorant Garamond',serif; font-size:clamp(32px,3.5vw,48px); font-weight:300; color:var(--moss); line-height:1.2; margin-bottom:8px;">The Ritual</h2>
+      <p style="font-family:'Noto Serif TC',serif; font-size:18px; font-weight:300; color:var(--charcoal); letter-spacing:0.05em; margin-bottom:0;">每日植物儀式</p>
+
+      <div class="ritual-steps">
+        <div class="ritual-step">
+          <div class="step-num">01</div>
+          <div class="step-content">
+            <div class="step-title">潔淨</div>
+            <div class="step-desc">以溫水輕潤面部，使用植研所潔顏慕斯，以指腹輕柔畫圓，深層帶走環境污染物，同時保留肌膚水分屏障。</div>
+          </div>
+        </div>
+        <div class="ritual-step">
+          <div class="step-num">02</div>
+          <div class="step-content">
+            <div class="step-title">化妝水</div>
+            <div class="step-desc">取適量植萃化妝水於掌心，雙掌微溫後輕輕壓拍全臉，讓植物精華快速滲透，為後續保養打開吸收通道。</div>
+          </div>
+        </div>
+        <div class="ritual-step">
+          <div class="step-num">03</div>
+          <div class="step-content">
+            <div class="step-title">精華液</div>
+            <div class="step-desc">取 3-4 滴高山修護精華液，由內向外輕點至全臉，積雪草成分即刻啟動修護機制，建構肌膚防護力。</div>
+          </div>
+        </div>
+        <div class="ritual-step">
+          <div class="step-num">04</div>
+          <div class="step-content">
+            <div class="step-title">乳霜鎖水</div>
+            <div class="step-desc">最後以植萃滋養霜收尾，薄塗於全臉，深層鎖住前三步驟的保養成分，整夜修護，清晨煥然一新。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values" id="values">
+  <div class="values-header reveal">
+    <div class="section-label" style="justify-content:center;">Our Commitments</div>
+    <h2 class="val-h2">Pure. Honest.<br>Sustainable.</h2>
+    <p class="val-h2-zh">純粹、誠實、永續</p>
+  </div>
+
+  <div class="values-grid reveal">
+    <div class="value-card">
+      <svg class="value-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1"/>
+        <path d="M24 40 C24 40 20 30 24 18 C28 6 24 2 24 2" stroke="currentColor" stroke-width="1.25"/>
+        <path d="M24 28 C18 22 10 18 8 10 C6 2 12 -2 18 2 C24 6 24 14 24 20" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="0.75"/>
+      </svg>
+      <div class="value-title">Pure Botanical</div>
+      <div class="value-title-zh">植物純淨</div>
+      <div class="value-desc">所有產品不含人工色素、人工香料、防腐劑及矽靈。每一項成分皆有完整來源追溯，讓您用得放心、用得安心。</div>
+    </div>
+
+    <div class="value-card">
+      <svg class="value-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="8" y="8" width="32" height="32" rx="4" stroke="currentColor" stroke-width="1"/>
+        <path d="M16 24 L22 30 L32 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="value-title">Certified Safe</div>
+      <div class="value-title-zh">通過認證</div>
+      <div class="value-desc">通過台灣 SGS、歐盟 COSMOS Organic 以e��皮膚科醫師測試認證，敏感肌膚與孕婦均可安心使用。</div>
+    </div>
+
+    <div class="value-card">
+      <svg class="value-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="24" cy="24" r="10" stroke="currentColor" stroke-width="1"/>
+        <path d="M24 4 C24 4 30 10 36 10 C42 10 44 18 40 22 C44 26 42 34 36 34 C30 34 24 44 24 44 C24 44 18 34 12 34 C6 34 4 26 8 22 C4 18 6 10 12 10 C18 10 24 4 24 4Z" stroke="currentColor" stroke-width="0.75" fill="currentColor" fill-opacity="0.05"/>
+      </svg>
+      <div class="value-title">Zero Waste</div>
+      <div class="value-title-zh">永續包裝</div>
+      <div class="value-desc">採用 100% 可回收玻璃瓶身與再生紙盒包裝。購買任一產品，植研所將為您在台灣山林種植一棵原生樹種。</div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="test-header reveal">
+    <div class="section-label" style="justify-content:center;">Reviews</div>
+    <h2 class="test-h2">What They Say</h2>
+    <p class="test-h2-zh">真實使用者心得</p>
+  </div>
+
+  <div class="test-grid reveal">
+    <div class="test-card">
+      <div class="test-quote">"</div>
+      <p class="test-text">用了一個月，過敏性肌膚的紅腫明顯改善了。積雪草精華液真的是我用過最溫和有效的產品，質地輕薄不油膩，早晚都可以用。</p>
+      <div class="test-author">
+        <div class="test-avatar av-1">L</div>
+        <div>
+          <div class="test-name">林小姐</div>
+          <div class="test-type">敏感肌 · 台北</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="test-card">
+      <div class="test-quote">"</div>
+      <p class="test-text">植研所的包裝設計就讓我一眼愛上，用了之後發現內容物更厲害。山茶花乳霜的延展性超好，塗完不黏膩，明天臉真的軟嫩很多。</p>
+      <div class="test-author">
+        <div class="test-avatar av-2">C</div>
+        <div>
+          <div class="test-name">陳小姐</div>
+          <div class="test-type">混合肌 · 台中</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="test-card">
+      <div class="test-quote">"</div>
+      <p class="test-text">�9e�9�hy�#y�%9�`9��:a�yc����y/����9�9�!�o�x� ���z`d����`"��$9b!�o��d�(�y/��� y�#�n�9�+��#{�#9�*:-m�/���nyb)yk�yo��� �c%�i�y�-9�:%�:#m��!zi�zgg�n.9�`��d��#9��:%���i��`9�"y.��� ����]��\��H�\�X]]܈���]��\��H�\�X]�atar av-3">W</div>
+        <div>
+          <div class="test-name">王先生</div>
+          <div class="test-type">油性肌 · 高雄</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-tag">Begin Your Ritual</div>
+  <h2 class="cta-h2">Experience<br>Pure Botany</h2>
+  <p class="cta-h2-zh">開始您的植物保養之旅</p>
+  <div class="cta-actions">
+    <a href="#products" class="cta-btn-primary">立即選購</a>
+    <a href="#about" class="cta-btn-outline">了解品牌</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="18" stroke="#5a7a5e" stroke-width="1"/>
+          <path d="M20 8 C20 8 12 14 12 22 C12 28 16 32 20 32 C24 32 28 28 28 22 C28 14 20 8 20 8Z" fill="#5a7a5e" opacity="0.3"/>
+          <path d="M20 10 C20 10 14 17 14 23 C14 27.5 16.5 30.5 20 31 C23.5 30.5 26 27.5 26 23 C26 17 20 10 20 10Z" stroke="#5a7a5e" stroke-width="0.75" fill="none"/>
+          <line x1="20" y1="10" x2="20" y2="32" stroke="#5a7a5e" stroke-width="0.75" opacity="0.5"/>
+        </svg>
+        <div>
+          <div class="footer-logo-zh">植研所</div>
+          <span class="footer-logo-en">Botanist Lab</span>
+        </div>
+      </div>
+      <div class="footer-tagline">以植物科學為基底，萃取台灣高山草本的純粹力量。</div>
+    </div>
+
+    <div>
+      <div class="footer-col-title">Products</div>
+      <ul class="footer-links">
+        <li><a href="#">高山修護精華液</a></li>
+        <li><a href="#">植萃深層滋養霜</a></li>
+        <li><a href="#">植萃清透化妝水</a></li>
+        <li><a href="#">潔顏慕斯</a></li>
+        <li><a href="#">眼部修護精華</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="footer-col-title">About</div>
+      <ul class="footer-links">
+        <li><a href="#">品牌理念</a></li>
+        <li><a href="#">研發團隊</a></li>
+        <li><a href="#">原料溯源</a></li>
+        <li><a href="#">永續承諾</a></li>
+        <li><a href="#">媒體報導</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="footer-col-title">Support</div>
+      <ul class="footer-links">
+        <li><a href="#">膚質診斷</a></li>
+        <li><a href="#">使用教學</a></li>
+        <li><a href="#">常見問題</a></li>
+        <li><a href="#">聯絡我們</a></li>
+        <li><a href="#">門市據點</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div>© 2024 植研所 Botanist Lab. All rights reserved.</div>
+    <div>製作單位：<a href="https://bridgeseqlab.vercel.app" target="_blank">橋序創研</a></div>
+  </div>
+</footer>
+
+<script>
+  // Intersection Observer for reveal animations
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
