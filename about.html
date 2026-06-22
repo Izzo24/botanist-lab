@@ -961,6 +961,19 @@ nav .nav-foot{display:none}
   nav .nav-foot{display:block}
 }
 </style>
+
+<style>
+.to-top{position:fixed;right:28px;bottom:28px;width:48px;height:48px;border-radius:50%;
+  background:var(--moss);color:var(--paper);border:none;cursor:pointer;z-index:80;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 24px -8px rgba(45,74,53,0.5);
+  opacity:0;visibility:hidden;transform:translateY(12px);
+  transition:opacity .4s,transform .4s,visibility .4s,background .3s}
+.to-top.show{opacity:1;visibility:visible;transform:translateY(0)}
+.to-top:hover{background:var(--fern)}
+.to-top svg{width:20px;height:20px}
+@media(max-width:768px){.to-top{right:18px;bottom:18px;width:44px;height:44px}}
+</style>
 </head>
 <body>
 <header>
@@ -1169,6 +1182,19 @@ document.querySelectorAll('header nav a').forEach(function(a){a.addEventListener
 document.addEventListener('DOMContentLoaded',function(){
   var bd=document.querySelector('.nav-backdrop');if(bd)bd.addEventListener('click',closeNav);
 });
+</script>
+<button class="to-top" aria-label="回到頂部" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 19V5M12 5L5 12M12 5L19 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</button>
+<script>
+(function(){
+  var btn=document.querySelector('.to-top');
+  if(!btn)return;
+  function onScroll(){if(window.scrollY>400)btn.classList.add('show');else btn.classList.remove('show');}
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+})();
 </script>
 </body>
 </html>
