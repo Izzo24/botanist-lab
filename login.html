@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>高山修護精華液｜植研所 Botanist Lab</title>
+<title>登入 / 註冊｜植研所 Botanist Lab</title>
 <meta name="description" content="植研所 Botanist Lab — 以植物科學為基底，結合台灣高山草本萃取，淬煉純粹有效的日常保養。">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Serif+TC:wght@300;400;500&family=Inter:wght@300;400;500&display=swap');
@@ -1009,43 +1009,71 @@ nav .nav-foot{display:none}
   .cart-btn{position:fixed;top:14px;right:68px;z-index:101}
 }
 </style>
-<style>.account-btn{color:var(--moss);padding:6px;display:inline-flex;align-items:center;margin-left:4px}.account-btn svg{width:23px;height:23px}@media(max-width:768px){.account-btn{position:fixed;top:14px;right:108px;z-index:101}}</style>
 </head>
 
 <style>
-.prod-detail{max-width:1200px;margin:0 auto;padding:140px 60px 80px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
-.prod-detail-img{width:100%;aspect-ratio:3/4;overflow:hidden;border-radius:4px;background:var(--cream)}
-.prod-detail-img img{width:100%;height:100%;object-fit:cover;display:block}
-.pd-series{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--sage);margin-bottom:14px}
-.pd-en{font-family:'Cormorant Garamond',serif;font-size:40px;color:var(--moss);font-weight:400;line-height:1.1}
-.pd-zh{font-size:18px;color:var(--charcoal);margin:8px 0 20px;font-weight:400}
-.pd-price{font-size:24px;color:var(--moss);font-family:'Cormorant Garamond',serif;margin-bottom:6px}
-.pd-price span{font-size:13px;color:var(--charcoal-soft);margin-left:8px}
-.pd-desc{font-size:15px;line-height:2;color:var(--charcoal-soft);font-weight:300;margin:24px 0;padding:24px 0;border-top:1px solid rgba(45,74,53,.12);border-bottom:1px solid rgba(45,74,53,.12)}
-.pd-block-title{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--sage);margin:32px 0 16px}
-.pd-ing{display:flex;flex-direction:column;gap:14px}
-.pd-ing-item{display:flex;gap:14px;align-items:baseline}
-.pd-ing-name{font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--moss);min-width:130px}
-.pd-ing-desc{font-size:13px;color:var(--charcoal-soft);font-weight:300}
-.pd-usage,.pd-skin{font-size:14px;line-height:1.9;color:var(--charcoal-soft);font-weight:300}
-.pd-cta{display:flex;gap:14px;margin-top:36px;flex-wrap:wrap}
-.pd-btn{padding:16px 40px;font-size:13px;letter-spacing:.1em;text-decoration:none;border-radius:2px;transition:.3s}
-.pd-btn-primary{background:var(--moss);color:var(--paper);box-shadow:0 8px 24px -10px rgba(45,74,53,.5)}
-.pd-btn-primary:hover{background:var(--fern)}
-.pd-btn-outline{border:1px solid var(--moss);color:var(--moss)}
-.related-products{background:var(--ivory);padding:80px 60px}
-.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:900px;margin:32px auto 0}
-.related-grid a{display:block;text-decoration:none;background:var(--paper);border-radius:4px;overflow:hidden;transition:transform .4s}
-.related-grid a:hover{transform:translateY(-4px)}
-.related-grid img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
-.related-grid .rp-info{padding:20px 24px}
-.related-grid .rp-zh{font-size:15px;color:var(--moss)}
-.related-grid .rp-price{font-size:13px;color:var(--charcoal-soft);margin-top:4px}
+.account-btn{color:var(--moss);padding:6px;display:inline-flex;align-items:center;margin-left:4px}
+.account-btn svg{width:23px;height:23px}
+@media(max-width:768px){.account-btn{position:fixed;top:14px;right:108px;z-index:101}}
+/* 共用電商頁版型 */
+.ec-page{max-width:1100px;margin:0 auto;padding:140px 60px 90px;min-height:60vh}
+.ec-page h1{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,5vw,52px);color:var(--moss);font-weight:400;margin-bottom:8px}
+.ec-sub{color:var(--charcoal-soft);font-weight:300;margin-bottom:48px}
+.ec-demo-note{background:var(--cream);border-left:3px solid var(--gold);padding:12px 18px;font-size:12.5px;color:var(--charcoal-soft);margin-bottom:32px;border-radius:0 4px 4px 0}
+/* 購物車頁 */
+.cartpage{display:grid;grid-template-columns:1fr 360px;gap:48px;align-items:start}
+.cartpage-list{display:flex;flex-direction:column}
+.cartrow{display:flex;gap:20px;padding:24px 0;border-bottom:1px solid rgba(45,74,53,.12);position:relative}
+.cartrow img{width:88px;height:110px;object-fit:cover;border-radius:4px;background:var(--cream)}
+.cartrow-info{flex:1}
+.cartrow-name{font-size:16px;color:var(--moss);font-family:'Cormorant Garamond',serif}
+.cartrow-zh{font-size:13px;color:var(--charcoal-soft);margin:2px 0 14px}
+.cartrow-price{font-size:14px;color:var(--moss);position:absolute;right:0;top:24px}
+.cartrow-remove{position:absolute;right:0;bottom:24px;background:none;border:none;color:var(--charcoal-soft);cursor:pointer;font-size:12px;text-decoration:underline}
+.qtybox{display:inline-flex;border:1px solid rgba(45,74,53,.2);border-radius:3px}
+.qtybox button{width:30px;height:30px;background:none;border:none;cursor:pointer;color:var(--moss)}
+.qtybox span{min-width:34px;text-align:center;line-height:30px;font-size:13px}
+.cart-summary{background:var(--ivory);padding:32px;border-radius:6px;position:sticky;top:100px}
+.cart-summary h3{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--moss);margin-bottom:20px;font-weight:400}
+.sum-row{display:flex;justify-content:space-between;font-size:14px;color:var(--charcoal-soft);margin-bottom:12px}
+.sum-total{display:flex;justify-content:space-between;font-size:18px;color:var(--moss);padding-top:16px;margin-top:8px;border-top:1px solid rgba(45,74,53,.15)}
+.ec-btn{display:block;text-align:center;background:var(--moss);color:var(--paper);padding:16px;border-radius:2px;text-decoration:none;font-size:14px;letter-spacing:.1em;margin-top:24px;border:none;cursor:pointer;width:100%;font-family:inherit;transition:.3s}
+.ec-btn:hover{background:var(--fern)}
+.ec-btn-outline{background:none;border:1px solid var(--moss);color:var(--moss)}
+.ec-empty{text-align:center;padding:80px 0;color:var(--charcoal-soft)}
+.ec-empty a{color:var(--moss)}
+/* 結帳頁 */
+.checkout{display:grid;grid-template-columns:1fr 380px;gap:56px;align-items:start}
+.form-group{margin-bottom:20px}
+.form-group label{display:block;font-size:12px;letter-spacing:.08em;color:var(--sage);margin-bottom:8px;text-transform:uppercase}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:13px 14px;border:1px solid rgba(45,74,53,.2);border-radius:3px;font-family:inherit;font-size:14px;color:var(--charcoal);background:var(--paper)}
+.form-group input:focus,.form-group select:focus{outline:none;border-color:var(--sage)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-section-title{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--moss);margin:8px 0 24px;font-weight:400}
+/* 登入註冊 */
+.auth-wrap{max-width:420px;margin:0 auto}
+.auth-tabs{display:flex;border-bottom:1px solid rgba(45,74,53,.15);margin-bottom:32px}
+.auth-tab{flex:1;text-align:center;padding:14px;cursor:pointer;color:var(--charcoal-soft);font-size:15px;border-bottom:2px solid transparent;margin-bottom:-1px}
+.auth-tab.active{color:var(--moss);border-bottom-color:var(--moss)}
+.auth-form{display:none}.auth-form.active{display:block}
+.auth-msg{font-size:13px;padding:10px 14px;border-radius:3px;margin-bottom:16px;display:none}
+.auth-msg.err{background:#fce8e6;color:#a4332a;display:block}
+.auth-msg.ok{background:var(--cream);color:var(--fern);display:block}
+/* 會員中心 */
+.account-grid{display:grid;grid-template-columns:240px 1fr;gap:48px;align-items:start}
+.account-side{background:var(--ivory);padding:28px;border-radius:6px}
+.account-avatar{width:56px;height:56px;border-radius:50%;background:var(--moss);color:var(--paper);display:flex;align-items:center;justify-content:center;font-size:22px;font-family:'Cormorant Garamond',serif;margin-bottom:16px}
+.account-name{font-size:17px;color:var(--moss)}
+.account-email{font-size:13px;color:var(--charcoal-soft);margin:4px 0 24px}
+.order-card{border:1px solid rgba(45,74,53,.12);border-radius:5px;padding:20px 24px;margin-bottom:16px}
+.order-head{display:flex;justify-content:space-between;font-size:13px;color:var(--charcoal-soft);margin-bottom:12px}
+.order-items{font-size:14px;color:var(--moss)}
+.order-total{font-size:15px;color:var(--moss);margin-top:10px;text-align:right}
 @media(max-width:768px){
-  .prod-detail{grid-template-columns:1fr;gap:32px;padding:120px 20px 56px}
-  .related-products{padding:56px 20px}
-  .related-grid{grid-template-columns:1fr}
-  .pd-en{font-size:32px}
+  .ec-page{padding:120px 20px 60px}
+  .cartpage,.checkout,.account-grid{grid-template-columns:1fr;gap:32px}
+  .form-row{grid-template-columns:1fr}
+  .cart-summary{position:static}
 }
 </style>
 <body>
@@ -1070,7 +1098,7 @@ nav .nav-foot{display:none}
     <div class="nav-inner">
       <a href="index.html" style="--i:1"><span class="nav-num">01</span><span class="nav-zh">首頁</span><span class="nav-en">Home</span></a>
       <a href="about.html" style="--i:2"><span class="nav-num">02</span><span class="nav-zh">品牌理念</span><span class="nav-en">About</span></a>
-      <a href="products.html" class="active" style="--i:3"><span class="nav-num">03</span><span class="nav-zh">產品系列</span><span class="nav-en">Products</span></a>
+      <a href="products.html" style="--i:3"><span class="nav-num">03</span><span class="nav-zh">產品系列</span><span class="nav-en">Products</span></a>
       <a href="ingredients.html" style="--i:4"><span class="nav-num">04</span><span class="nav-zh">成分與儀式</span><span class="nav-en">Ingredients</span></a>
       <a href="contact.html" style="--i:5"><span class="nav-num">05</span><span class="nav-zh">評價・聯絡</span><span class="nav-en">Contact</span></a>
       <a href="products.html" class="nav-cta" style="--i:6">立即選購</a>
@@ -1109,46 +1137,29 @@ nav .nav-foot{display:none}
     <button class="cart-continue" onclick="closeCart()">繼續購物</button>
   </div>
 </aside>
-<section class="prod-detail">
-  <div class="prod-detail-img reveal"><img src="img/prod-serum.webp" alt="高山修護精華液"></div>
-  <div class="prod-detail-info reveal">
-    <div class="pd-series">Alpine Essence Series</div>
-    <h1 class="pd-en">Revive Serum</h1>
-    <div class="pd-zh">高山修護精華液</div>
-    <div class="pd-price">NT$ 2,280<span>/ 30ml</span></div>
-    <p class="pd-desc">以台灣高山積雪草為核心成分，搭配深層海洋膠原蛋白，質地清盈好吸收。每日清晨一滴，喚醒一整天的肌膚彈潤與光澤。</p>
-    <div class="pd-block-title">核心成分 · Key Ingredients</div>
-    <div class="pd-ing">
-        <div class="pd-ing-item"><div class="pd-ing-name">高山積雪草萃取</div><div class="pd-ing-desc">鎮定修護，強化肌膚屏障</div></div>
-        <div class="pd-ing-item"><div class="pd-ing-name">海洋膠原蛋白</div><div class="pd-ing-desc">提升彈性，撫平細紋</div></div>
-        <div class="pd-ing-item"><div class="pd-ing-name">玻尿酸複合物</div><div class="pd-ing-desc">深層保濕，長效鎖水</div></div>
-    </div>
-    <div class="pd-block-title">使用方式 · How to Use</div>
-    <p class="pd-usage">潔面化妝水後，取 2-3 滴於掌心溫熱，輕壓全臉至吸收，早晚使用。</p>
-    <div class="pd-block-title">適合膚質 · Skin Type</div>
-    <p class="pd-skin">適合所有膚質，特別推薦給乾燥、缺乏彈性的肌膚。</p>
-    <div class="pd-cta">
-      <button class="pd-btn pd-btn-primary" style="border:none;cursor:pointer;font-family:inherit" onclick="Cart.add('serum','高山修護精華液',2280,'img/prod-serum.webp',1)">加入購物車</button>
-      <a href="products.html" class="pd-btn pd-btn-outline">返回產品系列</a>
-    </div>
-  </div>
-</section>
-<section class="related-products">
-  <div class="products-header reveal" style="text-align:center;max-width:900px;margin:0 auto">
-    <div class="section-label" style="justify-content:center">More Products</div>
-    <h2 class="prod-h2" style="font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--moss);font-weight:400">其他產品</h2>
-  </div>
-  <div class="related-grid">
-    <a href="product-cream.html">
-      <img src="img/prod-cream.webp" alt="植萃深層滋養霜" loading="lazy">
-      <div class="rp-info"><div class="rp-zh">植萃深層滋養霜</div><div class="rp-price">NT$ 1,880 / 50ml</div></div>
-    </a>
-    <a href="product-toner.html">
-      <img src="img/prod-collection.webp" alt="植萃清透化妝水" loading="lazy">
-      <div class="rp-info"><div class="rp-zh">植萃清透化妝水</div><div class="rp-price">NT$ 1,280 / 120ml</div></div>
-    </a>
-  </div>
-</section>
+<main class="ec-page">
+<div class="auth-wrap">
+<h1 style="text-align:center">會員</h1>
+<p class="ec-sub" style="text-align:center">登入或註冊，享受更好的購物體驗。</p>
+<div class="ec-demo-note">⚠️ 展示用 demo 帳號（資料僅存於本機瀏覽器，非真實會員系統）。請勿輸入真實密碼。</div>
+<div class="auth-tabs">
+  <div class="auth-tab active" onclick="switchTab('login')">登入</div>
+  <div class="auth-tab" onclick="switchTab('register')">註冊</div>
+</div>
+<div class="auth-msg" id="authMsg"></div>
+<form class="auth-form active" id="loginForm" onsubmit="doLogin(event)">
+  <div class="form-group"><label>Email</label><input type="email" id="loginEmail" required></div>
+  <div class="form-group"><label>密碼</label><input type="password" id="loginPw" required></div>
+  <button type="submit" class="ec-btn">登入</button>
+</form>
+<form class="auth-form" id="registerForm" onsubmit="doRegister(event)">
+  <div class="form-group"><label>姓名</label><input id="regName" required></div>
+  <div class="form-group"><label>Email</label><input type="email" id="regEmail" required></div>
+  <div class="form-group"><label>密碼</label><input type="password" id="regPw" required></div>
+  <button type="submit" class="ec-btn">註冊</button>
+</form>
+</div>
+</main>
 <footer>
   <div class="footer-top">
     <div class="footer-brand">
@@ -1242,11 +1253,6 @@ document.addEventListener('DOMContentLoaded',function(){
   var bd=document.querySelector('.nav-backdrop');if(bd)bd.addEventListener('click',closeNav);
 });
 </script>
-<button class="to-top" aria-label="回到頂部" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 19V5M12 5L5 12M12 5L19 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-  </svg>
-</button>
 <script>
 (function(){
   var btn=document.querySelector('.to-top');
@@ -1257,5 +1263,22 @@ document.addEventListener('DOMContentLoaded',function(){
 </script>
 <script src="cart.js"></script>
 <script src="auth.js"></script>
+<script>
+function switchTab(t){
+  document.querySelectorAll('.auth-tab').forEach(function(e){e.classList.remove('active')});
+  document.querySelectorAll('.auth-form').forEach(function(e){e.classList.remove('active')});
+  document.querySelector('.auth-tab:'+(t==='login'?'first-child':'last-child')).classList.add('active');
+  document.getElementById(t+'Form').classList.add('active');
+  document.getElementById('authMsg').className='auth-msg';
+}
+function msg(t,ok){var m=document.getElementById('authMsg');m.textContent=t;m.className='auth-msg '+(ok?'ok':'err');}
+function doLogin(e){e.preventDefault();
+  var r=Auth.login(document.getElementById('loginEmail').value,document.getElementById('loginPw').value);
+  if(r.ok)location.href='account.html';else msg(r.msg,false);}
+function doRegister(e){e.preventDefault();
+  var r=Auth.register(document.getElementById('regEmail').value,document.getElementById('regName').value,document.getElementById('regPw').value);
+  if(r.ok)location.href='account.html';else msg(r.msg,false);}
+document.addEventListener('DOMContentLoaded',function(){if(Auth.current())location.href='account.html';});
+</script>
 </body>
 </html>
