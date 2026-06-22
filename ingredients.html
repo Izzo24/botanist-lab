@@ -949,6 +949,18 @@ nav a.active{color:var(--moss);font-weight:500}
 }
 @media(max-width:420px){ .nav-inner{padding:100px 26px 32px} nav a{font-size:20px} }
 </style>
+
+<style>
+/* 桌機橫排 nav：隱藏側邊欄專用元素，nav-inner 不破壞橫排 */
+.nav-inner{display:contents}
+nav .nav-num,nav .nav-en{display:none}
+nav .nav-foot{display:none}
+@media(max-width:768px){
+  .nav-inner{display:flex!important}
+  nav .nav-num,nav .nav-en{display:inline}
+  nav .nav-foot{display:block}
+}
+</style>
 </head>
 <body>
 <header>

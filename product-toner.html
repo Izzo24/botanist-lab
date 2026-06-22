@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>評價與聯絡｜植研所 Botanist Lab</title>
+<title>植萃清透化妝水｜植研所 Botanist Lab</title>
 <meta name="description" content="植研所 Botanist Lab — 以植物科學為基底，結合台灣高山草本萃取，淬煉純粹有效的日常保養。">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Serif+TC:wght@300;400;500&family=Inter:wght@300;400;500&display=swap');
@@ -962,6 +962,43 @@ nav .nav-foot{display:none}
 }
 </style>
 </head>
+
+<style>
+.prod-detail{max-width:1200px;margin:0 auto;padding:140px 60px 80px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.prod-detail-img{width:100%;aspect-ratio:3/4;overflow:hidden;border-radius:4px;background:var(--cream)}
+.prod-detail-img img{width:100%;height:100%;object-fit:cover;display:block}
+.pd-series{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--sage);margin-bottom:14px}
+.pd-en{font-family:'Cormorant Garamond',serif;font-size:40px;color:var(--moss);font-weight:400;line-height:1.1}
+.pd-zh{font-size:18px;color:var(--charcoal);margin:8px 0 20px;font-weight:400}
+.pd-price{font-size:24px;color:var(--moss);font-family:'Cormorant Garamond',serif;margin-bottom:6px}
+.pd-price span{font-size:13px;color:var(--charcoal-soft);margin-left:8px}
+.pd-desc{font-size:15px;line-height:2;color:var(--charcoal-soft);font-weight:300;margin:24px 0;padding:24px 0;border-top:1px solid rgba(45,74,53,.12);border-bottom:1px solid rgba(45,74,53,.12)}
+.pd-block-title{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--sage);margin:32px 0 16px}
+.pd-ing{display:flex;flex-direction:column;gap:14px}
+.pd-ing-item{display:flex;gap:14px;align-items:baseline}
+.pd-ing-name{font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--moss);min-width:130px}
+.pd-ing-desc{font-size:13px;color:var(--charcoal-soft);font-weight:300}
+.pd-usage,.pd-skin{font-size:14px;line-height:1.9;color:var(--charcoal-soft);font-weight:300}
+.pd-cta{display:flex;gap:14px;margin-top:36px;flex-wrap:wrap}
+.pd-btn{padding:16px 40px;font-size:13px;letter-spacing:.1em;text-decoration:none;border-radius:2px;transition:.3s}
+.pd-btn-primary{background:var(--moss);color:var(--paper);box-shadow:0 8px 24px -10px rgba(45,74,53,.5)}
+.pd-btn-primary:hover{background:var(--fern)}
+.pd-btn-outline{border:1px solid var(--moss);color:var(--moss)}
+.related-products{background:var(--ivory);padding:80px 60px}
+.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:900px;margin:32px auto 0}
+.related-grid a{display:block;text-decoration:none;background:var(--paper);border-radius:4px;overflow:hidden;transition:transform .4s}
+.related-grid a:hover{transform:translateY(-4px)}
+.related-grid img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+.related-grid .rp-info{padding:20px 24px}
+.related-grid .rp-zh{font-size:15px;color:var(--moss)}
+.related-grid .rp-price{font-size:13px;color:var(--charcoal-soft);margin-top:4px}
+@media(max-width:768px){
+  .prod-detail{grid-template-columns:1fr;gap:32px;padding:120px 20px 56px}
+  .related-products{padding:56px 20px}
+  .related-grid{grid-template-columns:1fr}
+  .pd-en{font-size:32px}
+}
+</style>
 <body>
 <header>
   <a href="index.html" class="logo">
@@ -984,9 +1021,9 @@ nav .nav-foot{display:none}
     <div class="nav-inner">
       <a href="index.html" style="--i:1"><span class="nav-num">01</span><span class="nav-zh">首頁</span><span class="nav-en">Home</span></a>
       <a href="about.html" style="--i:2"><span class="nav-num">02</span><span class="nav-zh">品牌理念</span><span class="nav-en">About</span></a>
-      <a href="products.html" style="--i:3"><span class="nav-num">03</span><span class="nav-zh">產品系列</span><span class="nav-en">Products</span></a>
+      <a href="products.html" class="active" style="--i:3"><span class="nav-num">03</span><span class="nav-zh">產品系列</span><span class="nav-en">Products</span></a>
       <a href="ingredients.html" style="--i:4"><span class="nav-num">04</span><span class="nav-zh">成分與儀式</span><span class="nav-en">Ingredients</span></a>
-      <a href="contact.html" class="active" style="--i:5"><span class="nav-num">05</span><span class="nav-zh">評價・聯絡</span><span class="nav-en">Contact</span></a>
+      <a href="contact.html" style="--i:5"><span class="nav-num">05</span><span class="nav-zh">評價・聯絡</span><span class="nav-en">Contact</span></a>
       <a href="products.html" class="nav-cta" style="--i:6">立即選購</a>
       <div class="nav-foot" style="--i:7">
         <div class="nav-foot-brand">植研所 · Botanist Lab</div>
@@ -997,54 +1034,44 @@ nav .nav-foot{display:none}
     <button class="nav-toggle" aria-label="開啟選單" aria-expanded="false" onclick="toggleNav(this)"><span></span><span></span><span></span></button>
 </header>
 <div class="nav-backdrop"></div>
-<section class="subpage-hero"><div class="section-label" style="justify-content:center">Testimonials</div><h1>來自肌膚的回饋</h1><p>真實使用者的長期見證，與開始你的保養之旅。</p></section><section class="testimonials" id="testimonials">
-    <div class="test-header reveal">
-      <div class="section-label" style="justify-content:center;">Testimonials</div>
-      <h2 class="test-h2">來自肌膚的回饋</h2>
-      <p class="test-h2-zh">真實使用者的長期見證。</p>
+<section class="prod-detail">
+  <div class="prod-detail-img reveal"><img src="img/prod-collection.webp" alt="植萃清透化妝水"></div>
+  <div class="prod-detail-info reveal">
+    <div class="pd-series">Clarity Series</div>
+    <h1 class="pd-en">Mist Toner</h1>
+    <div class="pd-zh">植萃清透化妝水</div>
+    <div class="pd-price">NT$ 1,280<span>/ 120ml</span></div>
+    <p class="pd-desc">以台灣有機玫瑰純露雙重疊萃，輕盈噴霧質感，全日隨時補水。為後續保養打底，讓肌膚水潤平衡。</p>
+    <div class="pd-block-title">核心成分 · Key Ingredients</div>
+    <div class="pd-ing">
+        <div class="pd-ing-item"><div class="pd-ing-name">有機玫瑰純露</div><div class="pd-ing-desc">補水保濕，平衡膚況</div></div>
+        <div class="pd-ing-item"><div class="pd-ing-name">金縷梅萃取</div><div class="pd-ing-desc">收斂毛孔，清爽不緊繃</div></div>
+        <div class="pd-ing-item"><div class="pd-ing-name">泛醇 B5</div><div class="pd-ing-desc">保濕修護，提升肌膚柔嫩度</div></div>
     </div>
-    <div class="test-grid reveal">
-      <div class="test-card">
-        <div class="test-quote">&ldquo;</div>
-        <p class="test-text">用了三週，原本換季泛紅的狀況明顯穩定下來，質地清爽不黏膩，是會回購的那種。</p>
-        <div class="test-author">
-          <div class="test-avatar av-1"></div>
-          <div>
-            <div class="test-name">Lin C.</div>
-            <div class="test-type">敏感肌 · 使用 3 個月</div>
-          </div>
-        </div>
-      </div>
-      <div class="test-card">
-        <div class="test-quote">&ldquo;</div>
-        <p class="test-text">成分標示很透明，香氣是淡淡的草本味，不刺鼻。擦完隔天上妝特別服貼。</p>
-        <div class="test-author">
-          <div class="test-avatar av-2"></div>
-          <div>
-            <div class="test-name">Wang Y.</div>
-            <div class="test-type">混合肌 · 使用 6 個月</div>
-          </div>
-        </div>
-      </div>
-      <div class="test-card">
-        <div class="test-quote">&ldquo;</div>
-        <p class="test-text">喜歡它低調的包裝和踏實的質感，不浮誇卻很有效，已經推薦給身邊好幾個朋友。</p>
-        <div class="test-author">
-          <div class="test-avatar av-3"></div>
-          <div>
-            <div class="test-name">Chen H.</div>
-            <div class="test-type">乾性肌 · 使用 1 年</div>
-          </div>
-        </div>
-      </div>
+    <div class="pd-block-title">使用方式 · How to Use</div>
+    <p class="pd-usage">潔面後均勻噴於全臉，輕拍至吸收；亦可全日隨時補水定妝。</p>
+    <div class="pd-block-title">適合膚質 · Skin Type</div>
+    <p class="pd-skin">適合所有膚質，油性與混合肌的清爽補水良伴。</p>
+    <div class="pd-cta">
+      <a href="contact.html" class="pd-btn pd-btn-primary">加入購物車</a>
+      <a href="products.html" class="pd-btn pd-btn-outline">返回產品系列</a>
     </div>
-  </section><section class="cta-section">
-  <div class="cta-tag">Begin Your Ritual</div>
-  <h2 class="cta-h2">Experience<br>Pure Botany</h2>
-  <p class="cta-h2-zh">開始您的植物保養之旅</p>
-  <div class="cta-actions">
-    <a href="products.html" class="cta-btn-primary">立即選購</a>
-    <a href="about.html" class="cta-btn-outline">了解品牌</a>
+  </div>
+</section>
+<section class="related-products">
+  <div class="products-header reveal" style="text-align:center;max-width:900px;margin:0 auto">
+    <div class="section-label" style="justify-content:center">More Products</div>
+    <h2 class="prod-h2" style="font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--moss);font-weight:400">其他產品</h2>
+  </div>
+  <div class="related-grid">
+    <a href="product-serum.html">
+      <img src="img/prod-serum.webp" alt="高山修護精華液" loading="lazy">
+      <div class="rp-info"><div class="rp-zh">高山修護精華液</div><div class="rp-price">NT$ 2,280 / 30ml</div></div>
+    </a>
+    <a href="product-cream.html">
+      <img src="img/prod-cream.webp" alt="植萃深層滋養霜" loading="lazy">
+      <div class="rp-info"><div class="rp-zh">植萃深層滋養霜</div><div class="rp-price">NT$ 1,880 / 50ml</div></div>
+    </a>
   </div>
 </section>
 <footer>
@@ -1117,7 +1144,6 @@ nav .nav-foot{display:none}
   }, { threshold: 0.12 });
   revealEls.forEach(el => observer.observe(el));
 </script>
-
 <script>
 function toggleNav(b){
   var n=document.querySelector('header nav');

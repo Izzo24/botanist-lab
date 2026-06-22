@@ -949,6 +949,19 @@ nav a.active{color:var(--moss);font-weight:500}
 }
 @media(max-width:420px){ .nav-inner{padding:100px 26px 32px} nav a{font-size:20px} }
 </style>
+<style>.product-card-link{cursor:pointer}.product-card-link:hover .product-name-zh{color:var(--sage)}.product-card-link .product-info::after{content:"查看詳情 →";display:block;margin-top:14px;font-size:12px;letter-spacing:.1em;color:var(--sage);opacity:.7}</style>
+
+<style>
+/* 桌機橫排 nav：隱藏側邊欄專用元素，nav-inner 不破壞橫排 */
+.nav-inner{display:contents}
+nav .nav-num,nav .nav-en{display:none}
+nav .nav-foot{display:none}
+@media(max-width:768px){
+  .nav-inner{display:flex!important}
+  nav .nav-num,nav .nav-en{display:inline}
+  nav .nav-foot{display:block}
+}
+</style>
 </head>
 <body>
 <header>
@@ -996,13 +1009,13 @@ nav a.active{color:var(--moss);font-weight:500}
   </div>
 
   <div class="products-grid">
-    <div class="product-card reveal">
+    <a href="product-serum.html" class="product-card-link" style="text-decoration:none;color:inherit;display:block"><div class="product-card reveal">
       <div class="product-img">
         <div class="product-img-inner prod-bg-1">
           <img class="prod-img" src="img/prod-collection.webp" alt="植萃精選系列" loading="lazy" decoding="async" />
           <div class="product-tag-inner">熱銷</div>
         </div>
-      </div>
+      </div></a>
       <div class="product-info">
         <div class="product-series">Alpine Essence Series</div>
         <div class="product-name">Revive Serum</div>
@@ -1012,7 +1025,7 @@ nav a.active{color:var(--moss);font-weight:500}
       </div>
     </div>
 
-    <div class="product-card reveal">
+    <a href="product-cream.html" class="product-card-link" style="text-decoration:none;color:inherit;display:block"><div class="product-card reveal">
       <div class="product-img">
         <div class="product-img-inner prod-bg-2">
           <img class="prod-img" src="img/prod-serum.webp" alt="高山修護精華液" loading="lazy" decoding="async" />
@@ -1025,9 +1038,9 @@ nav a.active{color:var(--moss);font-weight:500}
         <div class="product-desc">融合台灣山茶花油與蘆薈凝萃，質地輕盈不黏膩，夜間深層修護，喚醒肌膚自然光澤。</div>
         <div class="product-price">NT$ 1,880<span class="product-price-note">/ 50ml</span></div>
       </div>
-    </div>
+    </div></a>
 
-    <div class="product-card reveal">
+    <a href="product-toner.html" class="product-card-link" style="text-decoration:none;color:inherit;display:block"><div class="product-card reveal">
       <div class="product-img">
         <div class="product-img-inner prod-bg-3">
           <img class="prod-img" src="img/prod-cream.webp" alt="植萃深層滋養霜" loading="lazy" decoding="async" />
@@ -1040,7 +1053,7 @@ nav a.active{color:var(--moss);font-weight:500}
         <div class="product-desc">薄荷葉萃取與玫瑰純露雙重複方，輕盈噴霧質感，全日隨時補水，維持肌膚水潤平衡。</div>
         <div class="product-price">NT$ 1,280<span class="product-price-note">/ 120ml</span></div>
       </div>
-    </div>
+    </div></a>
   </div>
 </section>
 <footer>
