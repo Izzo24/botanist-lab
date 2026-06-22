@@ -1009,6 +1009,13 @@ nav .nav-foot{display:none}
   .cart-btn{position:fixed;top:14px;right:68px;z-index:101}
 }
 </style>
+<style>
+.header-actions{display:flex;align-items:center;gap:6px}
+@media(min-width:769px){
+  header nav{margin-left:auto}
+  .header-actions{margin-left:28px}
+}
+</style>
 </head>
 
 <style>
@@ -1108,19 +1115,18 @@ nav .nav-foot{display:none}
       </div>
     </div>
     </nav>
-    <a class="account-btn" href="login.html" aria-label="會員" title="登入">
+    <div class="header-actions"><a class="account-btn" href="login.html" aria-label="會員" title="登入">
   <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.4"/>
     <path d="M4 20c0-4 3.5-6 8-6s8 2 8 6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
   </svg>
-</a>
-  <button class="cart-btn" aria-label="購物車" onclick="openCart()">
+</a><button class="cart-btn" aria-label="購物車" onclick="openCart()">
   <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M5 7h14l-1 12H6L5 7Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
     <path d="M9 7V5.5a3 3 0 0 1 6 0V7" stroke="currentColor" stroke-width="1.4"/>
   </svg>
   <span class="cart-count" style="display:none">0</span>
-</button>
+</button></div>
   <button class="nav-toggle" aria-label="開啟選單" aria-expanded="false" onclick="toggleNav(this)"><span></span><span></span><span></span></button>
 </header>
 <div class="nav-backdrop"></div>
