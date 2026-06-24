@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant-TW">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>天然植萃保養｜植研所 Botanist Lab</title>
+<title>商品分類｜植研所 Botanist Lab</title>
 <meta name="description" content="植研所 Botanist Lab — 以植物科學為基底，結合台灣高山草本萃取，淬煉純粹有效的日常保養。">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Serif+TC:wght@300;400;500&family=Inter:wght@300;400;500&display=swap');
@@ -949,6 +949,7 @@ nav a.active{color:var(--moss);font-weight:500}
 }
 @media(max-width:420px){ .nav-inner{padding:100px 26px 32px} nav a{font-size:20px} }
 </style>
+<style>.product-card-link{cursor:pointer}.product-card-link:hover .product-name-zh{color:var(--sage)}.product-card-link .product-info::after{content:"查看詳情 →";display:block;margin-top:14px;font-size:12px;letter-spacing:.1em;color:var(--sage);opacity:.7}</style>
 
 <style>
 /* 桌機橫排 nav：隱藏側邊欄專用元素，nav-inner 不破壞橫排 */
@@ -1009,7 +1010,6 @@ nav .nav-foot{display:none}
   .cart-btn{position:fixed;top:14px;right:68px;z-index:101}
 }
 </style>
-<style>.product-card-link{cursor:pointer}.product-card-link:hover .product-name-zh{color:var(--sage)}</style>
 <style>.account-btn{color:var(--moss);padding:6px;display:inline-flex;align-items:center;margin-left:4px}.account-btn svg{width:23px;height:23px}@media(max-width:768px){.account-btn{position:fixed;top:14px;right:108px;z-index:101}}</style>
 <style>
 .header-actions{display:flex;align-items:center;gap:6px}
@@ -1039,10 +1039,10 @@ nav .nav-foot{display:none}
   </a>
     <nav>
     <div class="nav-inner">
-      <a href="index.html" class="active" style="--i:1"><span class="nav-num">01</span><span class="nav-zh">首頁</span><span class="nav-en">Home</span></a>
+      <a href="index.html" style="--i:1"><span class="nav-num">01</span><span class="nav-zh">首頁</span><span class="nav-en">Home</span></a>
       <a href="about.html" style="--i:2"><span class="nav-num">02</span><span class="nav-zh">品牌理念</span><span class="nav-en">About</span></a>
       <a href="products.html" style="--i:3"><span class="nav-num">03</span><span class="nav-zh">產品系列</span><span class="nav-en">Products</span></a>
-      <a href="category.html" style="--i:4"><span class="nav-num">04</span><span class="nav-zh">商品分類</span><span class="nav-en">Category</span></a>
+      <a href="category.html" class="active" style="--i:4"><span class="nav-num">04</span><span class="nav-zh">商品分類</span><span class="nav-en">Category</span></a>
       <a href="ingredients.html" style="--i:5"><span class="nav-num">04</span><span class="nav-zh">成分與儀式</span><span class="nav-en">Ingredients</span></a>
       <a href="contact.html" style="--i:6"><span class="nav-num">05</span><span class="nav-zh">評價・聯絡</span><span class="nav-en">Contact</span></a>
       <a href="products.html" class="nav-cta" style="--i:7">立即選購</a>
@@ -1066,113 +1066,51 @@ nav .nav-foot{display:none}
 </button></div>
   <button class="nav-toggle" aria-label="開啟選單" aria-expanded="false" onclick="toggleNav(this)"><span></span><span></span><span></span></button>
 </header>
-<div class="nav-backdrop"></div>
-<div class="cart-backdrop"></div>
-<aside class="cart-drawer" aria-label="購物車">
-  <div class="cart-drawer-head">
-    <span>購物車</span>
-    <button class="cart-close" onclick="closeCart()" aria-label="關閉">×</button>
+<section class="cat-hero">
+  <div class="cat-hero-inner">
+    <div class="cat-eyebrow">Shop by Category</div>
+    <h1>依分類，找到適合你的保養</h1>
+    <p>從精華、乳霜到化妝水與禮盒組合，依肌膚需求挑選最適合的植萃保養。</p>
   </div>
-  <div class="cart-drawer-body"></div>
-  <div class="cart-drawer-foot" style="display:none">
-    <div class="cart-total"><span>小計</span><span class="cart-total-amount">NT$ 0</span></div>
-    <a href="checkout.html" class="cart-checkout">前往結帳</a>
-    <button class="cart-continue" onclick="closeCart()">繼續購物</button>
-  </div>
-</aside>
-<section class="hero">
-  <div class="hero-left">
-    <div class="hero-tag">Taiwan Botanical Science</div>
-    <h1 class="hero-h1">Rooted in<br>Nature</h1>
-    <p class="hero-h1-zh">植物萃取，科學淬鍊</p>
-    <p class="hero-desc">以台灣高山草本為基底，結合現代植物科學，萃取每一株植物的純粹精華。植研所相信，最好的保養，來自大地最誠實的回應。</p>
-    <div class="hero-actions">
-      <a href="products.html" class="btn-primary">探索系列 →</a>
-      <a href="about.html" class="btn-text">品牌故事</a>
-    </div>
-  </div>
-
-  <div class="hero-right">
-    <div class="hero-botanical">
-      <!-- Botanical illustration SVG -->
-      <img class="hero-img" src="img/hero.webp" alt="植研所 — 植萃保養主視覺" loading="lazy" decoding="async" />
-    </div>
-
-    <div class="hero-badge">
-      <div class="hero-badge-num">100%</div>
-      <div class="hero-badge-text">Pure<br>Botanical</div>
-    </div>
-  </div>
-
-  <div class="hero-scroll">SCROLL</div>
-</section><section class="products" id="products">
-  <div class="products-header reveal">
-    <div class="products-title">
-      <div class="section-label">Product Lines</div>
-      <h2 class="prod-h2">Botanical<br>Collection</h2>
-      <p class="prod-h2-zh">植萃精選系列</p>
-    </div>
-    <a href="products.html" class="btn-text" style="margin-bottom:8px;">查看全系列 →</a>
-  </div>
-
-  <div class="products-grid">
-    <a href="product-serum.html" class="product-card-link" style="text-decoration:none;color:inherit;display:block">
-      <div class="product-card reveal">
-      <div class="product-img">
-        <div class="product-img-inner prod-bg-1">
-          <img class="prod-img" src="img/prod-serum.webp" alt="植萃精選系列" loading="lazy" decoding="async" />
-          <div class="product-tag-inner">熱銷</div>
+</section>
+<section class="cat-section">
+  <div class="cat-grid">
+      <a href="product-serum.html" class="cat-card">
+        <div class="cat-card-img"><img src="img/prod-serum.webp" alt="精華液系列" loading="lazy"></div>
+        <div class="cat-card-body">
+          <div class="cat-card-en">Serums</div>
+          <h3>精華液系列</h3>
+          <p>高濃度植萃修護，針對性解決肌膚問題。高山植物萃取，溫和有感。</p>
+          <span class="cat-card-more">查看商品 →</span>
         </div>
-      </div>
-      <div class="product-info">
-        <div class="product-series">Alpine Essence Series</div>
-        <div class="product-name">Revive Serum</div>
-        <div class="product-name-zh">高山修護精華液</div>
-        <div class="product-desc">以台灣高山積雪草為核心成分，搭配深層海洋膠原蛋白，每日清晨一瓶，恢復肌膚彈潤。</div>
-        <div class="product-price">NT$ 2,280<span class="product-price-note">/ 30ml</span></div>
-      </div>
-    </div>
-    </a>
-    <a href="product-cream.html" class="product-card-link" style="text-decoration:none;color:inherit;display:block">
-      <div class="product-card reveal">
-      <div class="product-img">
-        <div class="product-img-inner prod-bg-2">
-          <img class="prod-img" src="img/prod-cream.webp" alt="高山修護精華液" loading="lazy" decoding="async" />
+      </a>
+      <a href="product-cream.html" class="cat-card">
+        <div class="cat-card-img"><img src="img/prod-cream.webp" alt="乳霜系列" loading="lazy"></div>
+        <div class="cat-card-body">
+          <div class="cat-card-en">Creams</div>
+          <h3>乳霜系列</h3>
+          <p>鎖水保濕、滋潤修護，為肌膚築起健康屏障。質地溫潤不黏膩。</p>
+          <span class="cat-card-more">查看商品 →</span>
         </div>
-      </div>
-      <div class="product-info">
-        <div class="product-series">Root & Soil Series</div>
-        <div class="product-name">Deep Cream</div>
-        <div class="product-name-zh">植萃深層滋養霜</div>
-        <div class="product-desc">融合台灣山茶花油與蘆薈凝萃，質地輕盈不黏膩，夜間深層修護，喚醒肌膚自然光澤。</div>
-        <div class="product-price">NT$ 1,880<span class="product-price-note">/ 50ml</span></div>
-      </div>
-    </div>
-    </a>
-    <a href="product-toner.html" class="product-card-link" style="text-decoration:none;color:inherit;display:block">
-      <div class="product-card reveal">
-      <div class="product-img">
-        <div class="product-img-inner prod-bg-3">
-          <img class="prod-img" src="img/prod-collection.webp" alt="植萃深層滋養霜" loading="lazy" decoding="async" />
+      </a>
+      <a href="product-toner.html" class="cat-card">
+        <div class="cat-card-img"><img src="img/prod-collection.webp" alt="化妝水系列" loading="lazy"></div>
+        <div class="cat-card-body">
+          <div class="cat-card-en">Toners</div>
+          <h3>化妝水系列</h3>
+          <p>調理角質、補水保濕，為後續保養打底。植物精露，清爽吸收。</p>
+          <span class="cat-card-more">查看商品 →</span>
         </div>
-      </div>
-      <div class="product-info">
-        <div class="product-series">Clarity Series</div>
-        <div class="product-name">Mist Toner</div>
-        <div class="product-name-zh">植萃清透化妝水</div>
-        <div class="product-desc">薄荷葉萃取與玫瑰純露雙重複方，輕盈噴霧質感，全日隨時補水，維持肌膚水潤平衡。</div>
-        <div class="product-price">NT$ 1,280<span class="product-price-note">/ 120ml</span></div>
-      </div>
-    </div>
-    </a>
-  </div>
-</section><section class="cta-section">
-  <div class="cta-tag">Begin Your Ritual</div>
-  <h2 class="cta-h2">Experience<br>Pure Botany</h2>
-  <p class="cta-h2-zh">開始您的植物保養之旅</p>
-  <div class="cta-actions">
-    <a href="products.html" class="cta-btn-primary">立即選購</a>
-    <a href="about.html" class="cta-btn-outline">了解品牌</a>
+      </a>
+      <a href="products.html" class="cat-card">
+        <div class="cat-card-img"><img src="img/ritual.webp" alt="禮盒・組合" loading="lazy"></div>
+        <div class="cat-card-body">
+          <div class="cat-card-en">Sets</div>
+          <h3>禮盒・組合</h3>
+          <p>精選組合與節慶禮盒，完整保養儀式，送禮自用皆宜。</p>
+          <span class="cat-card-more">查看商品 →</span>
+        </div>
+      </a>
   </div>
 </section>
 <footer>
@@ -1232,48 +1170,26 @@ nav .nav-foot{display:none}
     <div>製作單位：<a href="https://bridgeseqlab.vercel.app" target="_blank">橋序創研</a></div>
   </div>
 </footer>
-<script>
-  // Intersection Observer for reveal animations
-  const revealEls = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        observer.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.12 });
-  revealEls.forEach(el => observer.observe(el));
-</script>
-
-<script>
-function toggleNav(b){
-  var n=document.querySelector('header nav');
-  var bd=document.querySelector('.nav-backdrop');
-  var o=n.classList.toggle('open');
-  if(bd)bd.classList.toggle('open',o);
-  b.classList.toggle('open',o);
-  b.setAttribute('aria-expanded',o);
-  document.body.style.overflow=o?'hidden':'';
-}
-function closeNav(){
-  var n=document.querySelector('header nav');
-  var bd=document.querySelector('.nav-backdrop');
-  var b=document.querySelector('.nav-toggle');
-  n.classList.remove('open');if(bd)bd.classList.remove('open');
-  if(b){b.classList.remove('open');b.setAttribute('aria-expanded','false');}
-  document.body.style.overflow='';
-}
-document.querySelectorAll('header nav a').forEach(function(a){a.addEventListener('click',closeNav);});
-document.addEventListener('DOMContentLoaded',function(){
-  var bd=document.querySelector('.nav-backdrop');if(bd)bd.addEventListener('click',closeNav);
-});
-</script>
-<button class="to-top" aria-label="回到頂部" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 19V5M12 5L5 12M12 5L19 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-  </svg>
-</button>
+<style>
+.cat-hero{background:var(--moss);color:var(--ivory);padding:clamp(80px,11vw,140px) 24px clamp(40px,6vw,64px);text-align:center}
+.cat-hero-inner{max-width:820px;margin:0 auto}
+.cat-eyebrow{letter-spacing:.25em;text-transform:uppercase;font-size:12px;color:var(--sage-light);margin-bottom:20px}
+.cat-hero h1{font-size:clamp(28px,4.5vw,46px);font-weight:600;line-height:1.35;margin-bottom:18px;letter-spacing:.02em}
+.cat-hero p{color:rgba(248,245,238,.75);font-size:15px;line-height:1.85;max-width:600px;margin:0 auto}
+.cat-section{padding:clamp(54px,7vw,90px) 24px;background:var(--bg)}
+.cat-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:30px}
+.cat-card{display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--cream);border-radius:3px;overflow:hidden;text-decoration:none;transition:transform .4s,box-shadow .4s}
+.cat-card:hover{transform:translateY(-5px);box-shadow:0 18px 40px rgba(45,74,53,.13)}
+.cat-card-img{aspect-ratio:4/3;overflow:hidden;background:var(--cream)}
+.cat-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.cat-card:hover .cat-card-img img{transform:scale(1.06)}
+.cat-card-body{padding:26px 26px 30px;display:flex;flex-direction:column;flex:1}
+.cat-card-en{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--sage-light);margin-bottom:8px}
+.cat-card-body h3{font-size:1.35rem;color:var(--moss);font-weight:600;margin-bottom:12px}
+.cat-card-body p{font-size:.9rem;color:var(--sage);line-height:1.85;flex:1;margin-bottom:16px}
+.cat-card-more{font-size:.85rem;color:var(--fern);letter-spacing:.04em}
+@media(max-width:600px){.cat-grid{grid-template-columns:1fr}}
+</style>
 <script>
 (function(){
   var btn=document.querySelector('.to-top');
